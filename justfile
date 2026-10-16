@@ -25,13 +25,13 @@ tag next=`git cliff --bumped-version`:
     git tag "{{next}}"
 
 build-linux:
-    docker run --rm -it -v $(pwd):/io -w /io ghcr.io/rust-cross/cargo-zigbuild:sha-eba2d7e cargo zigbuild --release --target x86_64-unknown-linux-gnu --target-dir target/plugin-linux
+    docker run --rm -v $(pwd):/io -w /io ghcr.io/rust-cross/cargo-zigbuild:sha-eba2d7e cargo zigbuild --release --target x86_64-unknown-linux-gnu --target-dir target/plugin-linux
 
 build-mac:
-    docker run --rm -it -v $(pwd):/io -w /io ghcr.io/rust-cross/cargo-zigbuild:sha-eba2d7e cargo zigbuild --release --target universal2-apple-darwin --target-dir target/plugin-mac
+    docker run --rm -v $(pwd):/io -w /io ghcr.io/rust-cross/cargo-zigbuild:sha-eba2d7e cargo zigbuild --release --target universal2-apple-darwin --target-dir target/plugin-mac
 
 build-win:
-    docker run --rm -it -v $(pwd):/io -w /io ghcr.io/rust-cross/cargo-zigbuild:sha-eba2d7e sh -c "apt-get update -qq && apt-get install -y -qq mingw-w64 > /dev/null 2>&1 && cargo zigbuild --release --target x86_64-pc-windows-gnu --target-dir target/plugin-win"
+    docker run --rm -v $(pwd):/io -w /io ghcr.io/rust-cross/cargo-zigbuild:sha-eba2d7e sh -c "apt-get update -qq && apt-get install -y -qq mingw-w64 > /dev/null 2>&1 && cargo zigbuild --release --target x86_64-pc-windows-gnu --target-dir target/plugin-win"
 
 clean:
     sudo rm -rf target/

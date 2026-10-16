@@ -1,5 +1,24 @@
 # Changelog
 
+## [1.0.0] - 2026-10-16
+
+First release of the [ciscosweater](https://github.com/ciscosweater/opendeck-ampgd6) fork.
+
+### 🚀 Features
+
+- *(device)* Send periodic keepalive so the first press after idling is not lost
+- *(renderer)* Split input and render pipelines; batch, cache and decode images in parallel
+- *(renderer)* Anti-aliased rounded key corners and sharper icon scaling
+- *(inputs)* Recover from lost press/release reports and stuck buttons
+- *(main)* Configurable log level via `OPENDECK_AMPGD6_LOG`
+
+### 🐛 Bug Fixes
+
+- *(device)* Serialize HID writes to prevent corrupted key images
+- *(device)* Never drop render updates when the queue is full
+- *(device)* Prevent duplicate device entries on reconnect
+- *(renderer)* Calibrate D6 key image size and orientation
+
 ## [0.2.1] - 2026-02-23
 
 ### 🚀 Features
